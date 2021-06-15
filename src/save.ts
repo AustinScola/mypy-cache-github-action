@@ -4,14 +4,21 @@ import * as github from "@actions/github";
 
 async function save(): Promise<void> {
   try {
-    core.debug("Saving mypy cache...");
+    core.debug("Maybe saving mypy cache...");
 
     const paths: string[] = [".mypy_cache"];
 
     const keyPrefix = "mypy-cache-";
     const key = keyPrefix + github.context.sha;
 
-    await cache.saveCache(paths, key);
+    const exactMatch = core.getState("EXACT_MATCH");
+    if (exactMatch === "false") {
+      await cache.saveCache(paths, key);
+    } else {
+      core.info(
+        "Not saving the mypy cache because it was restored exactly for this commit."
+      );
+    }
   } catch (error) {
     core.setFailed(error.message);
   }
