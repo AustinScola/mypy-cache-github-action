@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git@github.com:AustinScola/mypy-cache-github-action.git"
   },
-  "author": "",
+  "author": "Austin Scola",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6"
