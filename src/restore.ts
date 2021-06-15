@@ -1,13 +1,26 @@
 import * as core from "@actions/core";
+import * as cache from "@actions/cache";
+import * as github from "@actions/github";
 
 async function restore(): Promise<void> {
   try {
     core.debug("Checking for cached mypy cache...");
+
+    const paths: string[] = [".mypy_cache"];
+
+    const keyPrefix = "mypy-cache-";
+    const key = keyPrefix + github.context.sha;
+
+    const restoreKeys: string[] = [keyPrefix];
+
+    await cache.restoreCache(paths, key, restoreKeys);
   } catch (error) {
     core.setFailed(error.message);
   }
 }
 
-restore();
+if (!module.parent) {
+  restore();
+}
 
 export {restore};
