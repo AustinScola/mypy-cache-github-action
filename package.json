@@ -20,7 +20,9 @@
   "author": "Austin Scola",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "1.2.6"
+    "@actions/core": "1.2.6",
+    "@actions/cache": "1.0.7",
+    "@actions/github": "5.0.0"
   },
   "devDependencies": {
     "@types/jest": "26.0.15",
