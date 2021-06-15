@@ -5,7 +5,7 @@
   "description": "A GitHub Action for caching a mypy cache.",
   "main": "dist/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --noEmit",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
