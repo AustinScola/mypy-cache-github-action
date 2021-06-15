@@ -1,13 +1,13 @@
-import * as core from '@actions/core'
+import * as core from "@actions/core";
 
 async function main(): Promise<void> {
   try {
-    core.debug('Checking for cached mypy cache...')
+    core.debug("Checking for cached mypy cache...");
   } catch (error) {
-    core.setFailed(error.message)
+    core.setFailed(error.message);
   }
 }
 
-main()
+main();
 
-export {main}
+export {main};

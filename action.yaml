@@ -1,6 +1,6 @@
-name: 'Mypy Cache GitHub Action'
-description: 'A GitHub Action for caching a mypy cache.'
-author: 'Austin Scola'
+name: "Mypy Cache GitHub Action"
+description: "A GitHub Action for caching a mypy cache."
+author: "Austin Scola"
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"

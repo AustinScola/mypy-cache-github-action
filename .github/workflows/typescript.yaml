@@ -26,8 +26,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Test 
-        run: npm run test 
+      - name: Test
+        run: npm run test
 
   lint:
     name: Lint
@@ -52,9 +52,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Check Formatting 
+      - name: Check Formatting
         run: npm run format-check
-
 
   package:
     name: Package
