@@ -1,5 +1,5 @@
-import {main} from '../src/main'
+import {main} from "../src/main";
 
-test('test main', () => {
-  main()
-})
+test("test main", () => {
+  main();
+});
