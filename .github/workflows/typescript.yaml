@@ -10,6 +10,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: node-modules-cache
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ env.cache-name }}-
+
       - name: Install Dependencies
         run: npm install
 
@@ -22,6 +32,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: node-modules-cache
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ env.cache-name }}-
 
       - name: Install Dependencies
         run: npm install
@@ -36,6 +56,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: node-modules-cache
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ env.cache-name }}-
+
       - name: Install Dependencies
         run: npm install
 
@@ -49,6 +79,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: node-modules-cache
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ env.cache-name }}-
+
       - name: Install Dependencies
         run: npm install
 
@@ -61,6 +101,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: node-modules-cache
+        with:
+          path: ~/.npm
+          key: ${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ env.cache-name }}-
 
       - name: Install Dependencies
         run: npm install
