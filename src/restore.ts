@@ -13,7 +13,10 @@ async function restore(): Promise<void> {
 
     const restoreKeys: string[] = [keyPrefix];
 
-    await cache.restoreCache(paths, key, restoreKeys);
+    const cacheKey = await cache.restoreCache(paths, key, restoreKeys);
+
+    const exactMatch = cacheKey === key;
+    core.saveState("EXACT_MATCH", exactMatch);
   } catch (error) {
     core.setFailed(error.message);
   }

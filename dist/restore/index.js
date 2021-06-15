@@ -61576,7 +61576,9 @@ function restore() {
             const keyPrefix = "mypy-cache-";
             const key = keyPrefix + github.context.sha;
             const restoreKeys = [keyPrefix];
-            yield cache.restoreCache(paths, key, restoreKeys);
+            const cacheKey = yield cache.restoreCache(paths, key, restoreKeys);
+            const exactMatch = cacheKey === key;
+            core.saveState("EXACT_MATCH", exactMatch);
         }
         catch (error) {
             core.setFailed(error.message);

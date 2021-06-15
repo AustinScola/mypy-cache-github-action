@@ -61571,11 +61571,17 @@ const github = __importStar(__webpack_require__(5438));
 function save() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            core.debug("Saving mypy cache...");
+            core.debug("Maybe saving mypy cache...");
             const paths = [".mypy_cache"];
             const keyPrefix = "mypy-cache-";
             const key = keyPrefix + github.context.sha;
-            yield cache.saveCache(paths, key);
+            const exactMatch = core.getState("EXACT_MATCH");
+            if (exactMatch === "false") {
+                yield cache.saveCache(paths, key);
+            }
+            else {
+                core.info("Not saving the mypy cache because it was restored exactly for this commit.");
+            }
         }
         catch (error) {
             core.setFailed(error.message);
