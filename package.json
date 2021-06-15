@@ -17,11 +17,6 @@
     "type": "git",
     "url": "git@github.com:AustinScola/mypy-cache-github-action.git"
   },
-  "keywords": [
-    "actions",
-    "node",
-    "setup"
-  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
