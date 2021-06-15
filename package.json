@@ -10,6 +10,7 @@
     "lint": "eslint src/**/*.ts",
     "package": "ncc build -o dist/restore src/restore.ts && ncc build -o dist/save src/save.ts",
     "test": "jest",
+    "test:watch": "jest --watch",
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
