@@ -3,4 +3,5 @@ description: "A GitHub Action for caching a mypy cache."
 author: "Austin Scola"
 runs:
   using: "node12"
-  main: "dist/index.js"
+  main: "dist/restore/index.js"
+  post: "dist/save/index.js"

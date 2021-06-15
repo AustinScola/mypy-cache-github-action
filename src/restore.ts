@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
 
-async function main(): Promise<void> {
+async function restore(): Promise<void> {
   try {
     core.debug("Checking for cached mypy cache...");
   } catch (error) {
@@ -8,6 +8,6 @@ async function main(): Promise<void> {
   }
 }
 
-main();
+restore();
 
-export {main};
+export {restore};
