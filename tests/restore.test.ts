@@ -1,5 +1,6 @@
 import * as cache from "@actions/cache";
 import * as core from "@actions/core";
+import {State} from "../src/state";
 
 test("restore with cache miss", async () => {
   jest.spyOn(cache, "restoreCache").mockResolvedValue(undefined);
@@ -28,7 +29,7 @@ test("restore with cache miss", async () => {
   ];
   expect(cache.restoreCache).toHaveBeenCalledWith(...expectedRestoreCacheArgs);
 
-  expect(core.saveState).toHaveBeenCalledWith("EXACT_MATCH", false);
+  expect(core.saveState).toHaveBeenCalledWith(State.exactMatch, false);
 });
 
 test("restore with a restoration key", async () => {
@@ -60,7 +61,7 @@ test("restore with a restoration key", async () => {
   ];
   expect(cache.restoreCache).toHaveBeenCalledWith(...expectedRestoreCacheArgs);
 
-  expect(core.saveState).toHaveBeenCalledWith("EXACT_MATCH", false);
+  expect(core.saveState).toHaveBeenCalledWith(State.exactMatch, false);
 });
 
 test("restore with exact key match", async () => {
@@ -92,5 +93,5 @@ test("restore with exact key match", async () => {
   ];
   expect(cache.restoreCache).toHaveBeenCalledWith(...expectedRestoreCacheArgs);
 
-  expect(core.saveState).toHaveBeenCalledWith("EXACT_MATCH", true);
+  expect(core.saveState).toHaveBeenCalledWith(State.exactMatch, true);
 });
