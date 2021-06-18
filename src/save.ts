@@ -1,6 +1,7 @@
 import * as core from "@actions/core";
 import * as cache from "@actions/cache";
 import * as github from "@actions/github";
+import {State} from "./state";
 
 async function save(): Promise<void> {
   try {
@@ -11,7 +12,7 @@ async function save(): Promise<void> {
     const keyPrefix = "mypy-cache-";
     const key = keyPrefix + github.context.sha;
 
-    const exactMatch = core.getState("EXACT_MATCH");
+    const exactMatch = core.getState(State.exactMatch);
     if (exactMatch === "false") {
       await cache.saveCache(paths, key);
     } else {
